@@ -1,0 +1,97 @@
+:root {
+  color-scheme: dark;
+  --pink: #ff6eb6;
+  --hot-pink: #ff2f98;
+  --ink: #261226;
+  --panel: rgba(48, 18, 48, 0.72);
+  --white: #fff7fc;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; }
+body {
+  align-items: center;
+  background: radial-gradient(circle at top, #ffd1e8 0%, #ff87c5 34%, #5b1d5c 100%);
+  color: var(--white);
+  display: flex;
+  font-family: Inter, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  justify-content: center;
+  touch-action: none;
+}
+
+.game-shell {
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 28px;
+  box-shadow: 0 28px 80px rgba(80, 0, 70, 0.48);
+  max-height: 100dvh;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+  width: min(100vw, 720px);
+}
+
+canvas {
+  background: #321035;
+  display: block;
+  height: 100%;
+  image-rendering: auto;
+  width: 100%;
+}
+
+.hud {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  left: 16px;
+  position: absolute;
+  right: 16px;
+  top: max(12px, env(safe-area-inset-top));
+  z-index: 2;
+}
+
+.hud div, .card {
+  backdrop-filter: blur(14px);
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 18px;
+}
+
+.hud div { padding: 10px 12px; text-align: center; }
+.label {
+  color: #ffd7ed;
+  display: block;
+  font-size: clamp(0.66rem, 2vw, 0.78rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+strong { font-size: clamp(1rem, 4vw, 1.5rem); }
+
+.overlay {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 72, 166, 0.18), rgba(26, 8, 29, 0.7));
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: absolute;
+  z-index: 3;
+}
+.overlay.hidden { display: none; }
+.card { max-width: 520px; padding: clamp(22px, 5vw, 36px); text-align: center; }
+h1 { font-size: clamp(2.1rem, 10vw, 4.3rem); line-height: 0.9; margin: 0 0 12px; text-shadow: 0 6px 0 #a91f70; }
+p { color: #ffe1f1; line-height: 1.5; margin: 0 0 18px; }
+button {
+  background: linear-gradient(135deg, var(--hot-pink), #ffb3da);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 12px 0 #951762, 0 22px 38px rgba(255, 47, 152, 0.38);
+  color: white;
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 900;
+  padding: 15px 34px;
+  text-transform: uppercase;
+}
+button:active { transform: translateY(6px); box-shadow: 0 6px 0 #951762; }
+.controls { font-size: 0.88rem; margin-top: 22px; opacity: 0.9; }
